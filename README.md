@@ -36,7 +36,7 @@ file content.
 
 ## Requirements
 
-  * Puppet > 2.6
+  * Puppet >= 3.5.1
 
 ## Dependencies
 
