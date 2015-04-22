@@ -11,7 +11,6 @@
 # Copyright 2015 Paul Otto.
 #
 class marathon::config (
-  $ensure = $marathon::ensure,
   $owner = $marathon::owner,
   $group = $marathon::group,
   $marathon_dir = $marathon::marathon_dir,

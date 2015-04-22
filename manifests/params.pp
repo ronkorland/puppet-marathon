@@ -11,7 +11,6 @@
 # Copyright 2015 Paul Otto.
 #
 class marathon::params {
-  $ensure = 'present'
   $owner = 'root'
   $group = 'root'
   $marathon_dir = '/etc/marathon'

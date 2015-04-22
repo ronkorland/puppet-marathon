@@ -36,7 +36,6 @@
 # Copyright 2015 Paul Otto.
 #
 class marathon (
-  $ensure = $marathon::params::ensure,
   $owner = $marathon::params::owner,
   $group = $marathon::params::group,
   $marathon_dir = $marathon::params::marathon_dir,
@@ -46,6 +45,11 @@ class marathon (
   $http_endpoints = $marathon::params::http_endpoints,
   $task_launch_timeout = $marathon::params::task_launch_timeout
 ) inherits marathon::params {
+
+  $marathon_ensure = $version ? {
+    undef    => $ensure,
+    default  => $version,
+  }
 
   class {'marathon::config':}
 
