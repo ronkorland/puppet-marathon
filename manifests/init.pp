@@ -46,11 +46,6 @@ class marathon (
   $task_launch_timeout = $marathon::params::task_launch_timeout
 ) inherits marathon::params {
 
-  $marathon_ensure = $version ? {
-    undef    => $ensure,
-    default  => $version,
-  }
-
   class {'marathon::config':}
 
 }
