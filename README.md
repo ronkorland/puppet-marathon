@@ -18,6 +18,12 @@ class{'marathon':
 
 ### Parameters
 
+- `marathon_dir` - Base directory for Marathon (default: `/etc/marathon`)
+- `conf_dir` - Configuration directory for Marathon (default: `/etc/marathon/conf`)
+- `mesos_role` - Mesos role that Marathon should use (default: none)
+- `event_subscriber` - event subscriber type: http_callback,none (default: none)
+- `http_endpoints` - http endpoint to send event messages to (default: none)
+- `task_launch_timeout` - time, in milliseconds, to wait for a task before killing it (default: none)
 
 ## File based configuration
 
