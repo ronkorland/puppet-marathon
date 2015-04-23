@@ -23,6 +23,8 @@ class{'marathon':
 - `zookeeper` - Zookeeper quorum for Mesos masters -- **Required**
 - `marathon_dir` - Base directory for Marathon (default: `/etc/marathon`)
 - `conf_dir` - Configuration directory for Marathon (default: `/etc/marathon/conf`)
+- `zk_conf_dir` - Base directory for Zookeeper file to be read by Marathon (default: `/etc/mesos`)
+- `zk_conf_file` - Filename for Zookeeper config file to be read by Marathon (default: `zk`)
 - `mesos_role` - Mesos role that Marathon should use (default: none)
 - `event_subscriber` - event subscriber type: http_callback,none (default: none)
 - `http_endpoints` - http endpoint to send event messages to (default: none)
