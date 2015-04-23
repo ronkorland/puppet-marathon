@@ -12,7 +12,7 @@
 #
 class marathon::config inherits marathon {
 
-  file { [$marathon_dir, $conf_dir, $zk_conf_dir]:
+  file { [$marathon_dir, $conf_dir]:
     ensure => directory,
     owner  => $owner,
     group  => $group,
@@ -46,6 +46,14 @@ class marathon::config inherits marathon {
     require => File[$conf_dir],
   }
 
+  # Create directory just in case Mesos is not installed on system
+  # Using mkdir -p to both create the entire path AND avoid managing
+  # the directory resource because Mesos module should do so.
+  exec{"create_zk_directory":
+    command => "/bin/mkdir -p ${zk_conf_dir}",
+    creates => "${zk_conf_dir}",
+  }
+  ->
   # Marathon relies on this file
   file { "${zk_conf_dir}/${zk_conf_file}":
     ensure  => 'present',
