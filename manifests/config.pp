@@ -10,17 +10,9 @@
 #
 # Copyright 2015 Paul Otto.
 #
-class marathon::config (
-  $owner = $marathon::owner,
-  $group = $marathon::group,
-  $marathon_dir = $marathon::marathon_dir,
-  $conf_dir = $marathon::conf_dir,
-  $mesos_role = $marathon::mesos_role,
-  $event_subscriber = $marathon::event_subscriber,
-  $http_endpoints = $marathon::http_endpoints,
-  $task_launch_timeout = $marathon::task_launch_timeout
-) {
-  file { [$marathon_dir, $conf_dir]:
+class marathon::config inherits marathon {
+
+  file { [$marathon_dir, $conf_dir, $zk_conf_dir]:
     ensure => directory,
     owner  => $owner,
     group  => $group,
@@ -52,6 +44,15 @@ class marathon::config (
     dir     => $conf_dir,
     file    => 'task_launch_timeout',
     require => File[$conf_dir],
+  }
+
+  # Marathon relies on this file
+  file { "${zk_conf_dir}/${zk_conf_file}":
+    ensure  => 'present',
+    content => $zookeeper,
+    owner   => $owner,
+    group   => $group,
+    require => File[$zk_conf_dir],
   }
 
 }

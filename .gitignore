@@ -1,0 +1,6 @@
+.bundle
+Gemfile.lock
+.tmp/*
+*.log
+pkg/*
+spec/fixtures

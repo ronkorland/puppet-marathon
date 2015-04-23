@@ -15,6 +15,12 @@ class marathon::params {
   $group = 'root'
   $marathon_dir = '/etc/marathon'
   $conf_dir = '/etc/marathon/conf'
+  $zookeeper = ''
+  # Marathon relies on this file
+  # config.pp currently assumes that only the last directory level
+  # needs to be created - ie: ./mesos - not intended to be a user param
+  $zk_conf_dir = '/etc/mesos'
+  $zk_conf_file = 'zk'
   $mesos_role = ''
   $event_subscriber = ''
   $http_endpoints = ''
