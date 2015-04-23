@@ -14,13 +14,13 @@ For managing Marathon:
 
 ```puppet
 class{'marathon':
-  marathon_dir  => '/etc/marathon',
-  conf_dir => '/etc/marathon/conf',
+  zookeeper  => 'zk://localhost:2181/mesos',
 }
 ```
 
 ### Parameters
 
+- `zookeeper` - Zookeeper quorum for Mesos masters -- **Required**
 - `marathon_dir` - Base directory for Marathon (default: `/etc/marathon`)
 - `conf_dir` - Configuration directory for Marathon (default: `/etc/marathon/conf`)
 - `mesos_role` - Mesos role that Marathon should use (default: none)
