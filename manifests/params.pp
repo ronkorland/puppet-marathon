@@ -1,6 +1,6 @@
 # == Class: marathon::params
 #
-# Full description of class marathon here.
+# Params base class for marathon module.
 #
 # === Authors
 #
@@ -11,8 +11,18 @@
 # Copyright 2015 Paul Otto.
 #
 class marathon::params {
+  $ensure = 'present'
+  $enable = true
+  $force_provider = undef
+  $service_enable = true
+  $service_ensure = 'running'
+  $service_manage = true
+  $package_ensure = 'present'
+  $package_name = 'marathon'
   $owner = 'root'
   $group = 'root'
+  $version = undef
+  $repo = undef
   $marathon_dir = '/etc/marathon'
   $conf_dir = '/etc/marathon/conf'
   $zookeeper = ''
@@ -22,5 +32,5 @@ class marathon::params {
   $mesos_role = ''
   $event_subscriber = ''
   $http_endpoints = ''
-  $task_launch_timeout = ''
+  $task_launch_timeout = undef
 }

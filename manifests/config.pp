@@ -10,7 +10,7 @@
 #
 # Copyright 2015 Paul Otto.
 #
-class marathon::config inherits marathon {
+class marathon::config {
 
   file { [$marathon::marathon_dir, $marathon::conf_dir]:
     ensure => directory,
@@ -21,29 +21,31 @@ class marathon::config inherits marathon {
   marathon::property {'mesos_role':
     value   => $marathon::mesos_role,
     dir     => $marathon::conf_dir,
-    file    => 'mesos_role',
     require => File[$marathon::conf_dir],
+    service => $marathon::service,
   }
 
   marathon::property {'event_subscriber':
     value   => $marathon::event_subscriber,
     dir     => $marathon::conf_dir,
-    file    => 'event_subscriber',
     require => File[$marathon::conf_dir],
+    service => $marathon::service,
   }
 
   marathon::property {'http_endpoints':
     value   => $marathon::http_endpoints,
     dir     => $marathon::conf_dir,
-    file    => 'http_endpoints',
     require => File[$marathon::conf_dir],
+    service => $marathon::service,
   }
 
-  marathon::property {'task_launch_timeout':
-    value   => $marathon::task_launch_timeout,
-    dir     => $marathon::conf_dir,
-    file    => 'task_launch_timeout',
-    require => File[$marathon::conf_dir],
+  if !empty($marathon::task_launch_timeout) {
+    marathon::property {'task_launch_timeout':
+      value   => $marathon::task_launch_timeout,
+      dir     => $marathon::conf_dir,
+      require => File[$marathon::conf_dir],
+      service => $marathon::service,
+    }
   }
 
   # Create directory just in case Mesos is not installed on system

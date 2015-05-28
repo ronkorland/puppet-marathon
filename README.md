@@ -5,8 +5,7 @@ Forge](http://img.shields.io/puppetforge/v/potto/marathon.svg)](https://forge.pu
 
 ## Overview
 
-This Puppet module manages the Marathon framework for Apache Mesos. It is very 
-early, and presently just manages the configuration files.
+This Puppet module manages the Marathon framework for Apache Mesos. 
 
 ## Usage
 

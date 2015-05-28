@@ -3,17 +3,11 @@
 # Store configuration in directory structure.
 #
 # === Parameters
-#
-# Document parameters here.
-#
-# [*title*]
-#   Filename
-#
-# [*dir*]
-#   Directory name
-#
-# [*value*]
-#   The content for the file
+# 
+#   $title   - filename to manage
+#   $dir     - directory name to access file in 
+#   $value   - content for the file
+#   $service - service to notify about property changes
 #
 # === Authors
 #
@@ -26,7 +20,7 @@
 define marathon::property (
   $value,
   $dir,
-  $service = undef, #service to be notified about property changes
+  $service = undef,
   $file = $title,
 ) {
 
