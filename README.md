@@ -42,6 +42,7 @@ file content.
 ## Dependencies
 
   * [stdlib](https://forge.puppetlabs.com/puppetlabs/stdlib) version `>= 4.2.0`
+  * [apt](https://forge.puppetlabs.com/puppetlabs/apt) version `>= 1.0.0`
 
 ## Links
 
