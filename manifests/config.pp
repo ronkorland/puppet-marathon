@@ -47,21 +47,4 @@ class marathon::config {
       service => $marathon::service,
     }
   }
-
-  # Create directory just in case Mesos is not installed on system
-  # Using mkdir -p to both create the entire path AND avoid managing
-  # the directory resource because Mesos module should do so.
-  exec{'create_zk_directory':
-    command => "/bin/mkdir -p ${marathon::zk_conf_dir}",
-    creates => $marathon::zk_conf_dir,
-  }
-  ->
-  # Marathon relies on this file
-  file { "${marathon::zk_conf_dir}/${marathon::zk_conf_file}":
-    ensure  => 'present',
-    content => $marathon::zookeeper,
-    owner   => $marathon::owner,
-    group   => $marathon::group,
-  }
-
 }

@@ -40,6 +40,8 @@ class marathon (
     default  => $version,
   }
 
+  require ::mesos::master
+
   anchor {'marathon::begin': } ->
   class {'::marathon::repo': } ->
   class {'::marathon::install': } ->
