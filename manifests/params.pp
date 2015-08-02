@@ -26,9 +26,6 @@ class marathon::params {
   $marathon_dir = '/etc/marathon'
   $conf_dir = '/etc/marathon/conf'
   $zookeeper = ''
-  # Marathon relies on this file
-  $zk_conf_dir = '/etc/mesos'
-  $zk_conf_file = 'zk'
   $mesos_role = ''
   $event_subscriber = ''
   $http_endpoints = ''
