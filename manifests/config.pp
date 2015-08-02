@@ -22,21 +22,21 @@ class marathon::config {
     value   => $marathon::mesos_role,
     dir     => $marathon::conf_dir,
     require => File[$marathon::conf_dir],
-    service => $marathon::service,
+    service => $marathon::service_name,
   }
 
   marathon::property {'event_subscriber':
     value   => $marathon::event_subscriber,
     dir     => $marathon::conf_dir,
     require => File[$marathon::conf_dir],
-    service => $marathon::service,
+    service => $marathon::service_name,
   }
 
   marathon::property {'http_endpoints':
     value   => $marathon::http_endpoints,
     dir     => $marathon::conf_dir,
     require => File[$marathon::conf_dir],
-    service => $marathon::service,
+    service => $marathon::service_name,
   }
 
   if !empty($marathon::task_launch_timeout) {
@@ -44,7 +44,7 @@ class marathon::config {
       value   => $marathon::task_launch_timeout,
       dir     => $marathon::conf_dir,
       require => File[$marathon::conf_dir],
-      service => $marathon::service,
+      service => $marathon::service_name,
     }
   }
 }

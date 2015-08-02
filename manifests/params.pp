@@ -14,6 +14,7 @@ class marathon::params {
   $ensure = 'present'
   $enable = true
   $force_provider = undef
+  $service_name = 'marathon'
   $service_enable = true
   $service_ensure = 'running'
   $service_manage = true

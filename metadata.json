@@ -1,6 +1,6 @@
 {
   "name": "potto-marathon",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "author": "Paul Otto",
   "summary": "Module managing Marathon framework for Mesos",
   "license": "Apache-2.0",
