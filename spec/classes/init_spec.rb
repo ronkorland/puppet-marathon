@@ -59,7 +59,7 @@ describe 'marathon' do
     it { should contain_class('marathon') }
     it { should contain_class('marathon::config') }
     it { should contain_class('marathon::params') }
-      it { should contain_file(
+      it { should_not contain_file(
         "#{conf}/mesos_role"
       ).with_content(/^$/)}
 
@@ -71,7 +71,7 @@ describe 'marathon' do
         "#{conf}/http_endpoints"
       ).with_content(/^$/)}
 
-      it { should contain_file(
+      it { should_not contain_file(
         "#{conf}/task_launch_timeout"
       ).with_content(/^$/)}
 
