@@ -21,6 +21,7 @@ class marathon (
   $marathon_dir = $marathon::params::marathon_dir,
   $conf_dir = $marathon::params::conf_dir,
   $zookeeper = $marathon::params::zookeeper,
+  $master = $marathon::params::master,
   $mesos_role = $marathon::params::mesos_role,
   $event_subscriber = $marathon::params::event_subscriber,
   $http_endpoints = $marathon::params::http_endpoints,

@@ -18,6 +18,20 @@ class marathon::config {
     group  => $marathon::group,
   }
 
+  marathon::property {'zk':
+    value   => $marathon::zookeeper,
+    dir     => $marathon::conf_dir,
+    require => File[$marathon::conf_dir],
+    service => $marathon::service_name,
+  }
+
+  marathon::property {'master':
+    value   => $marathon::master,
+    dir     => $marathon::conf_dir,
+    require => File[$marathon::conf_dir],
+    service => $marathon::service_name,
+  }
+
   marathon::property {'mesos_role':
     value   => $marathon::mesos_role,
     dir     => $marathon::conf_dir,

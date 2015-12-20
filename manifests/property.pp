@@ -44,7 +44,7 @@ define marathon::property (
     ensure  => $ensure,
     content => $content,
     require => File[$dir],
-    notify  => $service,
+#   notify  => Service[$service],
   }
 
 }

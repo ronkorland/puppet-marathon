@@ -31,4 +31,5 @@ class marathon::params {
   $event_subscriber = ''
   $http_endpoints = ''
   $task_launch_timeout = undef
+  $master = ''
 }
